@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e6f7f1"/>
+      <stop offset="1" stop-color="#b7e4c7"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="300" fill="url(#g)"/>
+  <g fill="#1b4332" font-family="Arial, Helvetica, sans-serif" text-anchor="middle">
+    <text x="200" y="150" font-size="44" font-weight="700">Aloe Vera</text>
+    <text x="200" y="190" font-size="18">Medicinal Succulent</text>
+  </g>
+</svg>

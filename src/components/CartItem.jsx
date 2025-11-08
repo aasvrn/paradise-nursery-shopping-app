@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { increment, decrement, removeItem } from '../store/cartSlice';
-import { buildUrl, buildSrcSet } from '../utils/image';
+import { buildUrl, buildSrcSet, isRemote } from '../utils/image';
 
 export default function CartItem({ item }) {
   const dispatch = useDispatch();
@@ -9,8 +9,8 @@ export default function CartItem({ item }) {
   return (
     <div style={styles.row}>
       <img
-        src={buildUrl(item.image, 120)}
-        srcSet={buildSrcSet(item.image, [80, 120, 160])}
+        src={isRemote(item.image) ? buildUrl(item.image, 120) : item.image}
+        srcSet={isRemote(item.image) ? buildSrcSet(item.image, [80, 120, 160]) : undefined}
         sizes="80px"
         alt={item.name}
         style={styles.thumb}

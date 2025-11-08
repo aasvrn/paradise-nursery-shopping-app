@@ -18,3 +18,14 @@ export function buildSrcSet(url, widths = [240, 360, 480, 800], quality = 60) {
   if (b.includes('source.unsplash.com')) return undefined;
   return widths.map((w) => `${buildUrl(url, w, quality)} ${w}w`).join(', ');
 }
+
+export function isRemote(url) {
+  return /^https?:\/\//.test(url);
+}
+
+export function assetUrl(path) {
+  const base = import.meta.env.BASE_URL || '/';
+  // Ensure single slash between base and path
+  const normalized = base.endsWith('/') ? base + path : base + '/' + path;
+  return normalized;
+}

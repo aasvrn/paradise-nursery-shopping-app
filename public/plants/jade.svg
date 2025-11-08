@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e7f5ff"/>
+      <stop offset="1" stop-color="#c5f6fa"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="300" fill="url(#g)"/>
+  <g fill="#0b7285" font-family="Arial, Helvetica, sans-serif" text-anchor="middle">
+    <text x="200" y="150" font-size="44" font-weight="700">Jade Plant</text>
+    <text x="200" y="190" font-size="18">Crassula ovata</text>
+  </g>
+</svg>

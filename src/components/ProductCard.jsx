@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { addItem } from '../store/cartSlice';
-import { buildUrl, buildSrcSet } from '../utils/image';
+import { buildUrl, buildSrcSet, isRemote } from '../utils/image';
 import { memo } from 'react';
 
 function ProductCard({ plant }) {
@@ -10,8 +10,8 @@ function ProductCard({ plant }) {
   return (
     <div style={styles.card}>
       <img
-        src={buildUrl(plant.image, 360)}
-        srcSet={buildSrcSet(plant.image, [240, 360, 480])}
+        src={isRemote(plant.image) ? buildUrl(plant.image, 360) : plant.image}
+        srcSet={isRemote(plant.image) ? buildSrcSet(plant.image, [240, 360, 480]) : undefined}
         sizes="(max-width: 600px) 50vw, (max-width: 1000px) 33vw, 240px"
         alt={plant.name}
         style={styles.img}
