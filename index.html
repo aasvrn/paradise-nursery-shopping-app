@@ -5,6 +5,22 @@
     <link rel="icon" type="image/svg+xml" href="/paradise-nursery-shopping-app/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>paradise-nursery-shopping-app</title>
+    <script>
+      // Restore path from 404 redirect query param so BrowserRouter can resolve
+      (function() {
+        try {
+          var params = new URLSearchParams(window.location.search);
+          var red = params.get('redirect');
+          if (red) {
+            var base = window.location.pathname.replace(/index\.html$/, '');
+            var newPath = base.replace(/\/$/, '') + '/' + red.replace(/^\/?/, '');
+            window.history.replaceState(null, '', newPath);
+          }
+        } catch (e) {
+          console.warn('redirect normalization failed', e);
+        }
+      })();
+    </script>
     <script type="module" crossorigin src="/paradise-nursery-shopping-app/assets/index-U7ZQ45hP.js"></script>
     <link rel="stylesheet" crossorigin href="/paradise-nursery-shopping-app/assets/index-DheN822i.css">
   </head>
