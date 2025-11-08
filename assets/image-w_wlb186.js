@@ -1,1 +1,0 @@
-function r(n){const t=n.indexOf("?");return t>=0?n.slice(0,t):n}function c(n,t,i=60){return`${r(n)}?q=${i}&w=${t}&auto=format&fit=crop`}function e(n,t=[240,360,480,800],i=60){return t.map(o=>`${c(n,o,i)} ${o}w`).join(", ")}export{c as a,e as b};
