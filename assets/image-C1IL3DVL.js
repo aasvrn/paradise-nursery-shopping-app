@@ -1,1 +1,0 @@
-function o(n){const e=n.indexOf("?");return e>=0?n.slice(0,e):n}function r(n,e,c=60){const t=o(n);return t.includes("source.unsplash.com")?t:`${t}?q=${c}&w=${e}&auto=format&fit=crop`}function s(n,e=[240,360,480,800],c=60){if(!o(n).includes("source.unsplash.com"))return e.map(i=>`${r(n,i,c)} ${i}w`).join(", ")}export{r as a,s as b};
