@@ -1,19 +1,23 @@
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
-import Landing from './pages/Landing';
-import Products from './pages/Products';
-import Cart from './pages/Cart';
+import { lazy, Suspense } from 'react';
+
+const Landing = lazy(() => import('./pages/Landing'));
+const Products = lazy(() => import('./pages/Products'));
+const Cart = lazy(() => import('./pages/Cart'));
 
 export default function App() {
   return (
     <div>
       <Header />
-      <Routes>
-        <Route path="/" element={<Landing />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/cart" element={<Cart />} />
-      </Routes>
+      <Suspense fallback={<div style={{ padding: 20 }}>Loading...</div>}>
+        <Routes>
+          <Route path="/" element={<Landing />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/cart" element={<Cart />} />
+        </Routes>
+      </Suspense>
     </div>
   );
 }

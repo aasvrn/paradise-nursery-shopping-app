@@ -20,7 +20,7 @@ const styles = {
   wrapper: {
     minHeight: 'calc(100vh - 60px)',
     backgroundImage:
-      "url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6?q=80&w=1600&auto=format&fit=crop')",
+      "url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6?q=50&w=1600&auto=format&fit=crop')",
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     display: 'flex',

@@ -1,13 +1,25 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { addItem } from '../store/cartSlice';
+import { buildUrl, buildSrcSet } from '../utils/image';
+import { memo } from 'react';
 
-export default function ProductCard({ plant }) {
+function ProductCard({ plant }) {
   const dispatch = useDispatch();
   const inCart = useSelector((state) => Boolean(state.cart.items[plant.id]));
 
   return (
     <div style={styles.card}>
-      <img src={plant.image} alt={plant.name} style={styles.img} />
+      <img
+        src={buildUrl(plant.image, 360)}
+        srcSet={buildSrcSet(plant.image, [240, 360, 480])}
+        sizes="(max-width: 600px) 50vw, (max-width: 1000px) 33vw, 240px"
+        alt={plant.name}
+        style={styles.img}
+        loading="lazy"
+        decoding="async"
+        width={360}
+        height={160}
+      />
       <div style={styles.info}>
         <div style={styles.name}>{plant.name}</div>
         <div style={styles.price}>${plant.price.toFixed(2)}</div>
@@ -45,3 +57,5 @@ const styles = {
     cursor: 'pointer',
   },
 };
+
+export default memo(ProductCard);

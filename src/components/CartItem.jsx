@@ -1,5 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { increment, decrement, removeItem } from '../store/cartSlice';
+import { buildUrl, buildSrcSet } from '../utils/image';
 
 export default function CartItem({ item }) {
   const dispatch = useDispatch();
@@ -7,7 +8,17 @@ export default function CartItem({ item }) {
 
   return (
     <div style={styles.row}>
-      <img src={item.image} alt={item.name} style={styles.thumb} />
+      <img
+        src={buildUrl(item.image, 120)}
+        srcSet={buildSrcSet(item.image, [80, 120, 160])}
+        sizes="80px"
+        alt={item.name}
+        style={styles.thumb}
+        loading="lazy"
+        decoding="async"
+        width={80}
+        height={80}
+      />
       <div style={styles.grow}>
         <div style={styles.name}>{item.name}</div>
         <div>Unit: ${item.price.toFixed(2)} | Total: ${totalForType}</div>
